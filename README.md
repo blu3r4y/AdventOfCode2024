@@ -4,6 +4,16 @@ My solutions for the [AoC 2024](https://adventofcode.com/2024) challenges, writt
 
 🎄 🎄 🎄
 
+## Puzzles
+
+| Day | 🧩 Puzzle                                                     | 🐍 Solution            | ⏳ Duration A | ⏳ Duration B |
+| --: | :------------------------------------------------------------ | :--------------------- | ------------: | ------------: |
+|   1 | **[Historian Hysteria](https://adventofcode.com/2024/day/1)** | [day1.py](src/day1.py) |             - |             - |
+
+Timings are measured on my computer in a non-scientific way.
+Empty durations indicate a runtime of less than ten milliseconds.
+Bold durations indicate a runtime of more than one minute.
+
 ## Requirements
 
 ### Python 3.13
