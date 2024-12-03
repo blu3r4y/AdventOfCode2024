@@ -10,6 +10,7 @@ My solutions for the [AoC 2024](https://adventofcode.com/2024) challenges, writt
 | --: | :------------------------------------------------------------ | :--------------------- | ------------: | ------------: |
 |   1 | **[Historian Hysteria](https://adventofcode.com/2024/day/1)** | [day1.py](src/day1.py) |             - |             - |
 |   2 | **[Red-Nosed Reports](https://adventofcode.com/2024/day/2)**  | [day2.py](src/day2.py) |             - |             - |
+|   3 | **[Mull It Over](https://adventofcode.com/2024/day/3)**       | [day3.py](src/day3.py) |             - |             - |
 
 Timings are measured on my computer in a non-scientific way.
 Empty durations indicate a runtime of less than ten milliseconds.
