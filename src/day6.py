@@ -7,7 +7,6 @@ from tqdm.auto import tqdm
 
 GUARD = "^"
 WALL = "#"
-FREE = "."
 
 
 @print_calls
@@ -35,16 +34,14 @@ def part2(data):
 
     obstructions = 0
 
-    pbar = tqdm(total=width * height)
+    pbar = tqdm(total=width * height - len(walls) - 1)
     for r in range(width):
         for c in range(height):
-            cell = cmplx(r, c)
+            cell = complex(c, r)
             if cell == guard or cell in walls:
                 continue
 
-            new_walls = walls.copy()
-            new_walls[cell] = WALL
-            if is_guard_looping(new_walls, guard, limits):
+            if is_guard_looping(walls | {cell}, guard, limits):
                 obstructions += 1
 
             pbar.update(1)
@@ -62,11 +59,12 @@ def is_guard_looping(walls, guard, limits):
     heading = -1j
 
     while within_bounds(guard, limits):
+        # cycle-checking is costly, so only do it sometimes
         if len(visited) % 10_000 == 0:
             if detect_cycle(visited):
                 return True
 
-        visited.append((guard, heading))
+        visited.append(guard)
         while guard + heading in walls:
             heading *= 1j  # turn right
         guard += heading
@@ -92,19 +90,15 @@ def detect_cycle(visited):
             return True
 
 
-def cmplx(r, c):
-    return 1j * r + c
-
-
 def load(data):
-    walls, guard = {}, None
+    walls, guard = set(), None
 
     rows = data.splitlines()
     for r, row in enumerate(data.splitlines()):
         for c, cell in enumerate(row):
-            pos = cmplx(r, c)
+            pos = complex(c, r)
             if cell == WALL:
-                walls[pos] = cell
+                walls.add(pos)
             elif cell == GUARD:
                 guard = pos
 
