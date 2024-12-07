@@ -40,6 +40,8 @@ def evaluate(lval, rvals, ops):
             result = op(result, rvals[i + 1])
         if result == lval:
             return lval
+        elif result > lval:
+            continue  # already too high
 
     return None
 
