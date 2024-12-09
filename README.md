@@ -16,6 +16,7 @@ My solutions for the [AoC 2024](https://adventofcode.com/2024) challenges, writt
 |   6 | **[Guard Gallivant](https://adventofcode.com/2024/day/6)**       | [day6.py](src/day6.py) |             - |     39.193 ms |
 |   7 | **[Bridge Repair](https://adventofcode.com/2024/day/7)**         | [day7.py](src/day7.py) |        119 ms |     12.479 ms |
 |   8 | **[Resonant Collinearity](https://adventofcode.com/2024/day/8)** | [day8.py](src/day8.py) |             - |             - |
+|   9 | **[Disk Fragmenter](https://adventofcode.com/2024/day/9)**       | [day9.py](src/day9.py) |             - |      4.989 ms |
 
 Timings are measured on my computer in a non-scientific way.
 Empty durations indicate a runtime of less than ten milliseconds.
