@@ -18,6 +18,7 @@ My solutions for the [AoC 2024](https://adventofcode.com/2024) challenges, writt
 |   8 | **[Resonant Collinearity](https://adventofcode.com/2024/day/8)** | [day8.py](src/day8.py)   |             - |             - |
 |   9 | **[Disk Fragmenter](https://adventofcode.com/2024/day/9)**       | [day9.py](src/day9.py)   |             - |      4.989 ms |
 |  10 | **[Hoof It](https://adventofcode.com/2024/day/10)**              | [day10.py](src/day10.py) |         12 ms |         12 ms |
+|  11 | **[Plutonian Pebbles](https://adventofcode.com/2024/day/11)**    | [day11.py](src/day11.py) |             - |         84 ms |
 
 Timings are measured on my computer in a non-scientific way.
 Empty durations indicate a runtime of less than ten milliseconds.
