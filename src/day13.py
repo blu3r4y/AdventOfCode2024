@@ -2,11 +2,12 @@
 # (c) blu3r4y
 
 from collections import namedtuple
+from functools import cache, partial
 
 from aocd.models import Puzzle
 from funcy import print_calls, print_durations
 from parse import parse
-from sympy import Eq, solve, symbols
+from sympy import Eq, lambdify, solve, symbols
 
 COST_A, COST_B = 3, 1
 INC = 10000000000000
@@ -31,28 +32,13 @@ def part2(games):
 def compute_costs(games):
     costs = 0
 
+    get_n, get_m = generate_solvers()
     for game in games:
-        if solution := solve_game(game):
-            n, m = solution
+        n, m = get_n(game), get_m(game)
+        if n is not None and m is not None:
             costs += COST_A * n + COST_B * m
 
     return costs
-
-
-def solve_game(game):
-    # n and m are the number of button presses to reach the prize
-    n, m = symbols("n m", integer=True, nonnegative=True)
-
-    eq = [
-        Eq(game.prize.x, n * game.a.x + m * game.b.x),
-        Eq(game.prize.y, n * game.a.y + m * game.b.y),
-    ]
-
-    # solve in integer domain
-    if sol := solve(eq, (n, m), dict=True, integer=True):
-        return int(sol[0][n]), int(sol[0][m])
-
-    return None
 
 
 def load(data):
@@ -71,8 +57,32 @@ def load(data):
     return games
 
 
+@cache
+def generate_solvers():
+    px, py, ax, ay, bx, by, n, m = symbols("px py ax ay bx by n m", integer=True)
+
+    eq = [Eq(px, n * ax + m * bx), Eq(py, n * ay + m * by)]
+    sol = solve(eq, (n, m), dict=True, integer=True)
+    assert len(sol) == 1
+
+    def _compute(g, fn):
+        result = fn(g.prize.x, g.prize.y, g.a.x, g.a.y, g.b.x, g.b.y)
+        return int(result) if result.is_integer() and result >= 0 else None
+
+    _lambda_n = lambdify([px, py, ax, ay, bx, by], sol[0][n], modules="math")
+    _lambda_m = lambdify([px, py, ax, ay, bx, by], sol[0][m], modules="math")
+
+    # prepare convenience functions to compute n and m for a given game
+    _compute_n = partial(_compute, fn=_lambda_n)
+    _compute_m = partial(_compute, fn=_lambda_m)
+    return _compute_n, _compute_m
+
+
 if __name__ == "__main__":
     puzzle = Puzzle(year=2024, day=13)
+
+    # cache the solvers (static, regardless of input)
+    generate_solvers()
 
     ans1 = part1(load(puzzle.input_data))
     assert ans1 == 30973
