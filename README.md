@@ -22,6 +22,7 @@ My solutions for the [AoC 2024](https://adventofcode.com/2024) challenges, writt
 |  12 | **[Garden Groups](https://adventofcode.com/2024/day/12)**        | [day12.py](src/day12.py) |        135 ms |        230 ms |
 |  13 | **[Claw Contraption](https://adventofcode.com/2024/day/13)**     | [day13.py](src/day13.py) |             - |             - |
 |  14 | **[Restroom Redoubt](https://adventofcode.com/2024/day/14)**     | [day14.py](src/day14.py) |         11 ms |      4.306 ms |
+|  15 | **[Warehouse Woes](https://adventofcode.com/2024/day/15)**       | [day15.py](src/day15.py) |         12 ms |         41 ms |
 
 Timings are measured on my computer in a non-scientific way.
 Empty durations indicate a runtime of less than ten milliseconds.
