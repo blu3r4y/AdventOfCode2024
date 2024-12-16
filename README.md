@@ -23,6 +23,7 @@ My solutions for the [AoC 2024](https://adventofcode.com/2024) challenges, writt
 |  13 | **[Claw Contraption](https://adventofcode.com/2024/day/13)**     | [day13.py](src/day13.py) |             - |             - |
 |  14 | **[Restroom Redoubt](https://adventofcode.com/2024/day/14)**     | [day14.py](src/day14.py) |         11 ms |      4.306 ms |
 |  15 | **[Warehouse Woes](https://adventofcode.com/2024/day/15)**       | [day15.py](src/day15.py) |         12 ms |         41 ms |
+|  16 | **[Reindeer Maze](https://adventofcode.com/2024/day/16)**        | [day16.py](src/day16.py) |        907 ms |        974 ms |
 
 Timings are measured on my computer in a non-scientific way.
 Empty durations indicate a runtime of less than ten milliseconds.
