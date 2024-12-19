@@ -26,6 +26,7 @@ My solutions for the [AoC 2024](https://adventofcode.com/2024) challenges, writt
 |  16 | **[Reindeer Maze](https://adventofcode.com/2024/day/16)**          | [day16.py](src/day16.py) |        907 ms |        974 ms |
 |  17 | **[Chronospatial Computer](https://adventofcode.com/2024/day/17)** |                          |               |               |
 |  18 | **[RAM Run](https://adventofcode.com/2024/day/18)**                | [day18.py](src/day18.py) |         17 ms |     45.368 ms |
+|  19 | **[Linen Layout](https://adventofcode.com/2024/day/19)**           | [day19.py](src/day19.py) |        105 ms |        346 ms |
 
 Timings are measured on my computer in a non-scientific way.
 Empty durations indicate a runtime of less than ten milliseconds.
