@@ -27,6 +27,8 @@ My solutions for the [AoC 2024](https://adventofcode.com/2024) challenges, writt
 |  17 | **[Chronospatial Computer](https://adventofcode.com/2024/day/17)** |                          |               |               |
 |  18 | **[RAM Run](https://adventofcode.com/2024/day/18)**                | [day18.py](src/day18.py) |         17 ms |     45.368 ms |
 |  19 | **[Linen Layout](https://adventofcode.com/2024/day/19)**           | [day19.py](src/day19.py) |        105 ms |        346 ms |
+|  20 | **[Race Condition](https://adventofcode.com/2024/day/20)**         |                          |               |               |
+|  21 | **[Keypad Conundrum](https://adventofcode.com/2024/day/21)**       | [day21.py](src/day21.py) |             - |             - |
 
 Timings are measured on my computer in a non-scientific way.
 Empty durations indicate a runtime of less than ten milliseconds.
