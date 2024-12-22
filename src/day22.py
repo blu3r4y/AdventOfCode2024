@@ -6,9 +6,9 @@ from functools import cache
 
 from aocd.models import Puzzle
 from funcy import collecting, partition, print_calls, print_durations
-from tqdm.auto import tqdm
 
 NUM_SECRETS = 2000
+MASK = (1 << 24) - 1
 
 
 @print_calls
@@ -25,32 +25,28 @@ def part1(seeds):
 @print_durations(unit="ms")
 def part2(seeds):
     counts = defaultdict(int)
-
-    for s in tqdm(seeds):
+    for s in seeds:
         # [3, 0, 6, 5, 4, 4, ...]
-        ones = one_digits(s, NUM_SECRETS)
+        digits = one_digits(s, NUM_SECRETS)
         # [-3, 6, -1, -1, 0, ...]
-        deltas = difference(ones)
-        # {(-3, 6, -1, -1), (6, -1, -1, 0), ...}
-        quadruples = delta_quadruples(deltas)
-
-        # {(-3, 6, -1, -1): 1, (6, -1, -1, 0): 2, ...}
-        add_banana_counts(quadruples, deltas, ones, counts)
+        deltas = difference(digits)
+        # {(-3, 6, -1, -1): +1, (6, -1, -1, 0): +2, ...}
+        add_banana_counts(deltas, digits, counts)
 
     return max(counts.values())
 
 
-def add_banana_counts(sequences, deltas, ones, counts):
-    for seq in sequences:
-        if (idx := find(deltas, seq)) is not None:
-            counts[seq] += ones[idx + 4]
+def add_banana_counts(deltas, digits, counts):
+    visited = set()
+    for i, quad in enumerate(partition(4, 1, deltas)):
+        quad = tuple(quad)
 
+        # only count the first occurrence
+        if quad in visited:
+            continue
 
-def find(haystack: list[int], needle: tuple[int, int, int, int]) -> int | None:
-    # find the first index of the needle in the haystack
-    for i in range(len(haystack) - 3):
-        if tuple(haystack[i : i + 4]) == needle:
-            return i
+        counts[quad] += digits[i + 4]
+        visited.add(quad)
 
 
 @collecting
@@ -59,11 +55,6 @@ def difference(s):
         yield b - a
 
 
-def delta_quadruples(nums, size=4):
-    return set(map(tuple, partition(size, 1, nums)))
-
-
-@cache
 def one_digits(s, n=1):
     # only the ones digit of each element in the secret sequence
     return [s % 10 for s in secret_sequence(s, n)]
@@ -80,7 +71,6 @@ def secret_sequence(s, n=1):
 
 @cache
 def advance(s):
-    MASK = (1 << 24) - 1
     s = ((s << 6) ^ s) & MASK  #  ((s * 64) XOR s) mod 2^24
     s = ((s >> 5) ^ s) & MASK  #  ((s // 32) XOR s) mod 2^24
     s = ((s << 11) ^ s) & MASK  # ((s * 2048) XOR s) mod 2^24
