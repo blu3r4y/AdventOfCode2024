@@ -30,6 +30,7 @@ My solutions for the [AoC 2024](https://adventofcode.com/2024) challenges, writt
 |  20 | **[Race Condition](https://adventofcode.com/2024/day/20)**         | [day20.py](src/day20.py) |         84 ms |      2.331 ms |
 |  21 | **[Keypad Conundrum](https://adventofcode.com/2024/day/21)**       | [day21.py](src/day21.py) |             - |             - |
 |  22 | **[Monkey Market ](https://adventofcode.com/2024/day/22)**         | [day22.py](src/day22.py) |      2.051 ms |      2.219 ms |
+|  23 | **[LAN Party](https://adventofcode.com/2024/day/23)**              | [day23.py](src/day23.py) |        120 ms |        535 ms |
 
 Timings are measured on my computer in a non-scientific way.
 Empty durations indicate a runtime of less than ten milliseconds.
