@@ -32,6 +32,7 @@ My solutions for the [AoC 2024](https://adventofcode.com/2024) challenges, writt
 |  22 | **[Monkey Market ](https://adventofcode.com/2024/day/22)**         | [day22.py](src/day22.py) |      2.051 ms |                  2.219 ms |
 |  23 | **[LAN Party](https://adventofcode.com/2024/day/23)**              | [day23.py](src/day23.py) |        120 ms |                    535 ms |
 |  24 | **[Crossed Wires](https://adventofcode.com/2024/day/24)**          | [day24.py](src/day24.py) |             - |                         - |
+|  25 | **[TODO](https://adventofcode.com/2024/day/25)**                   | [day25.py](src/day25.py) |         18 ms |                           |
 
 Timings are measured on my computer in a non-scientific way.
 Empty durations indicate a runtime of less than ten milliseconds.
